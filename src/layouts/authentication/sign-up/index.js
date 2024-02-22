@@ -21,7 +21,7 @@ function Basic() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
-  const [role, setRole] = useState("client");
+  const [role, setRole] = useState("company");
   const navigate = useNavigate(); 
 
   const handleRoleChange = (event) => {
@@ -105,14 +105,14 @@ function Basic() {
                 onChange={handleRoleChange}
               >
                 <FormControlLabel
-                  value="client"
+                  value="company"
                   control={<Radio />}
-                  label="Client"
+                  label="Company"
                 />
                 <FormControlLabel
-                  value="customer"
+                  value="volunteer"
                   control={<Radio />}
-                  label="Customer"
+                  label="Volunteer"
                 />
               </RadioGroup>
             </MDBox>

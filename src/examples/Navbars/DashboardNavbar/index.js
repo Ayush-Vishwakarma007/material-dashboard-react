@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
 =========================================================
 * Material Dashboard 2 React - v2.2.0
@@ -52,6 +53,7 @@ import {
   setMiniSidenav,
   setOpenConfigurator,
 } from "context";
+import MDTypography from "components/MDTypography";
 
 function DashboardNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();
@@ -110,7 +112,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
     </Menu>
   );
 
-  // Styles for the navbar icons
   const iconsStyle = ({ palette: { dark, white, text }, functions: { rgba } }) => ({
     color: () => {
       let colorValue = light || darkMode ? white.main : dark.main;
@@ -124,6 +125,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
   });
 
   return (
+    
     <AppBar
       position={absolute ? "absolute" : navbarType}
       color="inherit"
@@ -135,13 +137,14 @@ function DashboardNavbar({ absolute, light, isMini }) {
         </MDBox>
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <MDBox pr={1}>
+            {/* <MDBox pr={1}>
               <MDInput label="Search here" />
-            </MDBox>
+            </MDBox> */}
             <MDBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in/basic">
+              <Link>
                 <IconButton sx={navbarIconButton} size="small" disableRipple>
                   <Icon sx={iconsStyle}>account_circle</Icon>
+                  <MDTypography sx={iconsStyle}>Ayush</MDTypography>
                 </IconButton>
               </Link>
               <IconButton
@@ -164,7 +167,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
               >
                 <Icon sx={iconsStyle}>settings</Icon>
               </IconButton>
-              <IconButton
+              {/* <IconButton
                 size="small"
                 disableRipple
                 color="inherit"
@@ -175,7 +178,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 onClick={handleOpenMenu}
               >
                 <Icon sx={iconsStyle}>notifications</Icon>
-              </IconButton>
+              </IconButton> */}
               {renderMenu()}
             </MDBox>
           </MDBox>

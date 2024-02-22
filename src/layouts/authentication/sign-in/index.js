@@ -33,6 +33,14 @@ function Basic() {
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
+  const handleLogout = () => {
+    console.log("Logout called")
+    localStorage.removeItem('userDetail');
+    localStorage.removeItem('token');
+};
+
+  handleLogout();
+
   const handleSignIn = async () => {
     try {
       password =  Base64.btoa(password)
@@ -40,6 +48,9 @@ function Basic() {
       const response = await post("auth/login", userData);
       if(response['status']['code'] === 200){
         toastr.success(response['status']['description']);
+        console.log("Response__: ", response);
+        localStorage.setItem('userDetail', JSON.stringify(response['data']['user']))
+        localStorage.setItem('token', JSON.stringify(response['data']['token']))
         navigate('/dashboard'); 
       }else{
         toastr.error(response['status']['description']);

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
 =========================================================
 * Material Dashboard 2 React - v2.2.0
@@ -44,6 +45,7 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import LogOut from "layouts/authentication/log-out"
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -112,6 +114,14 @@ const routes = [
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
     component: <SignUp />,
+  },
+  {
+    type: "collapse",
+    name: "Log Out",
+    key: "log-out",
+    icon: <Icon fontSize="small">logout</Icon>,
+    route: "/authentication/sign-in",
+    component: <LogOut />,
   },
 ];
 
